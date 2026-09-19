@@ -69,6 +69,14 @@ Landing scale: H1 `clamp(3rem, 8vw, 7rem)`. Eyebrow pattern: 40px hairline
 - **`PaperSun`** — repeating radial rings + white glow. At most one per
   surface, tucked behind a cloud.
 
+**Cloud inventory** — clouds are the signature, not a garnish. Every
+surface uses at least two, in three sizes:
+- **XL backdrop** (`36–74rem`, opacity 90%) — behind display text, bleeds
+  off-canvas, lower lobes sink into the horizon.
+- **M scene cloud** (`10–24rem`) — floats in open sky, pairs with the sun.
+- **S accent** (`4–8rem`, opacity 70–80%) — margins, corners, next to
+  headings; the "punctuation" size.
+
 Layering rule: **nearer = lower on screen = drawn on top.** Decorations sit
 at `z-0`, content at `z-10`. Big clouds may bleed off-canvas and sink into
 the horizon bands.
@@ -94,7 +102,8 @@ never interrupts it.
   required; articles may scroll (the no-scroll rule is landing-only).
 - Hero: sky gradient, eyebrow (`ARTICLE · 12 MIN · 2026-08-29` in mono
   caps), Oswald title `clamp(2.2rem, 5vw, 4rem)`, optional one-line steel
-  subtitle. One small `CardboardCloud` top-right, `opacity-70`. No sun.
+  subtitle. An XL backdrop cloud behind the title (as on the landing hero)
+  plus one M cloud drifting top-right; sun optional on feature articles.
 - Body sits on a **white paper sheet** that starts with a `ScallopBand`
   (white) a third of the way down and runs to the footer — the article is
   literally written on the front sheet of the horizon.
@@ -110,10 +119,16 @@ never interrupts it.
   shadow, no radius (cut corners are square in this system).
 - Images/figures: square corners, sheet shadow, mono caption below.
 - End of article: scallop divider, then "More clear skies" — 2–3 article
-  cards (white sheets, kicker + Oswald title + one-line teaser).
+  cards. Each card IS a small cloud: `CardboardCloud` silhouette as the
+  card top, white sheet body with kicker + Oswald title + one-line teaser.
+- Long reads: at each H2 section break, the white sheet briefly opens back
+  to sky — a short full-bleed band of gradient with one or two S clouds
+  drifting past — then a white `ScallopBand` resumes the sheet. Articles
+  breathe sky between chapters.
 
-**Restraint budget per article page:** max one cloud, one horizon, zero
-suns, zero drifting elements inside the reading column.
+**Restraint inside the measure:** clouds live in the hero, the margins,
+the section-break sky bands, and the footer — never between two paragraphs
+of the reading column itself.
 
 ## 7. Slide deck system (16:9)
 
@@ -133,19 +148,23 @@ sky, content on paper sheets, horizon anchoring the bottom.
    (ink / steel), giant cloud behind text bleeding off-left, horizon bands
    at bottom, sun optional. The only slide that may use the sun.
 2. **Section break** — number huge in steel (`01`), section name in ink,
-   one small cloud. Horizon rises higher (~40% of frame) to signal a chapter.
+   an M cloud carrying the number on its face like a printed sheet, plus
+   1–2 S clouds. Horizon rises higher (~40% of frame) to signal a chapter.
 3. **Content** — eyebrow + H2 top-left; body in one or two columns ON a
    white sheet with scalloped top edge (band + sheet, exactly like the
-   landing footer). Max 4 bullets or 1 diagram per slide.
-4. **Quote / stat** — one white paper card centered on open sky, Oswald
-   steel for the number or quote, mono attribution. Nothing else.
+   landing footer). 1–2 S clouds drift in the open sky above the sheet.
+   Max 4 bullets or 1 diagram per slide.
+4. **Quote / stat** — the quote or stat sits ON an XL cloud centered in
+   open sky (text on the flat white face, never the shadowed edge), Oswald
+   steel, mono attribution below the cloud. Nothing else.
 5. **Closing** — "Clear skies." + contact email + navy button block.
    Mirror of the title slide with the cloud on the right.
 
 **Slide rules**
 - One idea per slide; if a bullet wraps twice, it's a new slide.
-- Decorations never overlap text — clouds live in whitespace, text lives
-  on sheets or open sky.
+- Every slide has at least one cloud; title/quote masters carry an XL.
+- Clouds never overlap text — clouds live in whitespace, text lives on
+  sheets, cloud faces, or open sky.
 - Charts: ink + steel + navy only, white sheet background, mono axis labels,
   no gridlines heavier than `rgba(34,55,82,0.15)`.
 - Static export (PDF) must lose nothing: drift/rise-in are web-only sugar.
